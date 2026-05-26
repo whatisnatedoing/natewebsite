@@ -19,8 +19,12 @@ export default function ContactForm() {
   const handleSubmit = async (e:React.FormEvent) => {
     e.preventDefault(); setSending(true); setError('')
     try {
-      // ── Replace with your email API (Resend, EmailJS, Formspree) ──
-      await new Promise(r=>setTimeout(r,1200))
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) throw new Error('Failed to send')
       setSent(true); setForm(INIT)
     } catch { setError('Something went wrong. Please try again or email me directly.') }
     finally { setSending(false) }

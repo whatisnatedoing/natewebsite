@@ -1,8 +1,11 @@
+import ScrollReveal from '@/components/ui/ScrollReveal'
 import LegalPage from '@/components/ui/LegalPage'
 export const metadata = { title:'Cookie Policy — Nate Danbury' }
 export default function CookiePolicyPage() {
   return (
-    <LegalPage title="Cookie Policy" subtitle="How we use cookies" lastUpdated="January 1, 2025">
+    <>
+      <ScrollReveal />
+      <LegalPage title="Cookie Policy" subtitle="How we use cookies" lastUpdated="January 1, 2025">
       <h4>1. What Are Cookies?</h4><p>Cookies are small text files stored on your device when you visit a website. They help us understand how you use our site and improve your experience.</p>
       <h4>2. Types of Cookies We Use</h4>
       <p><strong>Essential Cookies:</strong> Required for the website to function properly and cannot be disabled.</p>
@@ -12,5 +15,6 @@ export default function CookiePolicyPage() {
       <h4>4. Third-Party Cookies</h4><p>Some pages may include content from third-party services which may set their own cookies. We have no control over these.</p>
       <h4>5. Contact</h4><p>Questions about our use of cookies? Contact us at hello@natedanbury.com.</p>
     </LegalPage>
+    </>
   )
 }

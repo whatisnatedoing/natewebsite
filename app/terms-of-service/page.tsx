@@ -1,8 +1,11 @@
+import ScrollReveal from '@/components/ui/ScrollReveal'
 import LegalPage from '@/components/ui/LegalPage'
 export const metadata = { title:'Terms of Service — Nate Danbury' }
 export default function TermsPage() {
   return (
-    <LegalPage title="Terms of Service" subtitle="Please read carefully" lastUpdated="January 1, 2025">
+    <>
+      <ScrollReveal />
+      <LegalPage title="Terms of Service" subtitle="Please read carefully" lastUpdated="January 1, 2025">
       <h4>1. Acceptance of Terms</h4><p>By accessing and using this website, you accept and agree to be bound by these Terms of Service.</p>
       <h4>2. Services</h4><p>All work is subject to a formal agreement, project scope, and payment terms agreed upon before project commencement.</p>
       <h4>3. Intellectual Property</h4><p>Upon full payment, the client receives full ownership of final deliverables. Preliminary designs and unused work remain the property of Nate Danbury unless otherwise agreed in writing.</p>
@@ -11,5 +14,6 @@ export default function TermsPage() {
       <h4>6. Limitation of Liability</h4><p>Nate Danbury is not liable for any indirect, incidental, or consequential damages arising from the use of our services.</p>
       <h4>7. Changes to Terms</h4><p>We reserve the right to modify these terms at any time. Continued use of our services constitutes acceptance of the new terms.</p>
     </LegalPage>
+    </>
   )
 }

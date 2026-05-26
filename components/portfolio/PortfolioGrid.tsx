@@ -71,10 +71,6 @@ export default function PortfolioGrid({ projects }: { projects: any[] }) {
         ))}
       </div>
 
-      <style jsx global>{`
-        @media (max-width:992px) { .mil-pf-grid { grid-template-columns:repeat(2,1fr) !important; } }
-        @media (max-width:576px) { .mil-pf-grid { grid-template-columns:1fr !important; } }
-      `}</style>
     </>
   )
 }

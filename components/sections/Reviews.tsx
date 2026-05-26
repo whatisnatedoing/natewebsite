@@ -57,10 +57,6 @@ export default function Reviews() {
         </div>
       </div>
 
-      <style jsx global>{`
-        .mil-revi-pagination .swiper-pagination-bullet { width:8px; height:8px; border-radius:50%; background:rgba(0,0,0,0.2); cursor:pointer; transition:all 0.2s; }
-        .mil-revi-pagination .swiper-pagination-bullet-active { background:var(--accent); width:24px; border-radius:4px; }
-      `}</style>
     </section>
   )
 }

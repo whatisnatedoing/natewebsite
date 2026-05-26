@@ -85,12 +85,6 @@ export default function PricingClient() {
         <Link href="/questionnaire" className="mil-link mil-dark mil-upper"><span>Answer a few questions and we&apos;ll recommend one</span><ArrowSVG dark /></Link>
       </div>
 
-      <style jsx global>{`
-        @media (max-width:768px) {
-          .mil-tabs { flex-direction:column; width:100%; border-radius:12px; }
-          .mil-tab  { border-radius:8px; }
-        }
-      `}</style>
     </>
   )
 }

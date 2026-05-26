@@ -259,3 +259,231 @@ h1,.mil-h1{font-size:86px}h2,.mil-h2{font-size:68px}h3,.mil-h3{font-size:42px}h4
 @media (min-width:992px){.col-lg-3{width:25%}.col-lg-4{width:33.333%}.col-lg-5{width:41.666%}.col-lg-6{width:50%}.col-lg-7{width:58.333%}.col-lg-8{width:66.666%}.col-lg-9{width:75%}.col-lg-10{width:83.333%}}
 @media (min-width:1200px){.col-xl-4{width:33.333%}.col-xl-5{width:41.666%}.col-xl-7{width:58.333%}.col-xl-8{width:66.666%}}
 .justify-content-between{justify-content:space-between}.justify-content-center{justify-content:center}.align-items-center{align-items:center}.align-items-end{align-items:flex-end}.m-0{margin:0}.p-0{padding:0}
+
+/* =============================================
+   LEGAL PAGE
+============================================= */
+.mil-legal-content { font-size: 15px; line-height: 190%; color: rgba(0,0,0,0.6); }
+.mil-legal-content h4 { font-size: 18px; color: rgb(0,0,0); font-weight: 500; margin-top: 48px; margin-bottom: 16px; }
+.mil-legal-content p { margin-bottom: 16px; }
+.mil-legal-content strong { color: rgb(0,0,0); font-weight: 500; }
+
+/* =============================================
+   PARTNERS
+============================================= */
+.mil-partners-grid { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid rgba(255,255,255,0.08); border-left: 1px solid rgba(255,255,255,0.08); }
+.mil-partner-cell { padding: 50px 40px; display: flex; align-items: center; justify-content: center; border-right: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); transition: background 0.3s; }
+.mil-partner-cell img { max-height: 40px; max-width: 140px; opacity: 0.4; filter: brightness(10); transition: opacity 0.3s; }
+.mil-partner-cell:hover img { opacity: 0.8; }
+.mil-stats-grid { display: grid; grid-template-columns: repeat(4,1fr); margin-top: 90px; border-top: 1px solid rgba(255,255,255,0.08); }
+.mil-stat-cell { padding: 60px 30px; text-align: center; }
+.mil-stat-cell:not(:last-child) { border-right: 1px solid rgba(255,255,255,0.08); }
+
+/* =============================================
+   REVIEWS PAGINATION
+============================================= */
+.mil-revi-pagination .swiper-pagination-bullet { width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.2); cursor: pointer; transition: all 0.2s; display: inline-block; }
+.mil-revi-pagination .swiper-pagination-bullet-active { background: var(--accent); width: 24px; border-radius: 4px; }
+
+/* =============================================
+   BLOG
+============================================= */
+.mil-blog-card:hover img { transform: scale(1.04); }
+.mil-blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 30px; }
+@media (max-width: 992px) { .mil-blog-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 576px) { .mil-blog-grid, .mil-featured { grid-template-columns: 1fr !important; } }
+
+/* =============================================
+   PORTFOLIO GRID
+============================================= */
+.mil-pf-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 30px; }
+@media (max-width: 992px) { .mil-pf-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 576px) { .mil-pf-grid { grid-template-columns: 1fr; } }
+
+/* =============================================
+   PRICING TABS MOBILE
+============================================= */
+@media (max-width: 768px) {
+  .mil-tabs { flex-direction: column; width: 100%; border-radius: 12px; }
+  .mil-tab { border-radius: 8px; }
+}
+
+/* =============================================
+   QUESTIONNAIRE
+============================================= */
+.mil-sel-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+@media (max-width: 576px) {
+  .mil-sel-grid { grid-template-columns: repeat(2,1fr); }
+  .mil-checkbox-grid { grid-template-columns: repeat(2,1fr); }
+}
+
+/* =============================================
+   PARTNERS & STATS RESPONSIVE
+============================================= */
+@media (max-width: 992px) { .mil-partner-cell { padding: 35px 20px; } }
+@media (max-width: 768px) {
+  .mil-partners-grid { grid-template-columns: repeat(2,1fr); }
+  .mil-stats-grid { grid-template-columns: repeat(2,1fr); }
+  .mil-stat-cell { border-right: none !important; }
+  .mil-stat-cell:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08) !important; }
+}
+
+/* =============================================
+   PRELOADER ANIMATION
+============================================= */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* =============================================
+   NAVBAR — GLASSY BACKGROUND + ACTIVE STATES
+============================================= */
+
+/* Desktop frame-top: always visible, glass on scroll pages */
+.mil-frame .mil-frame-top {
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.4s cubic-bezier(0, 0, 0.3642, 1),
+              backdrop-filter 0.4s cubic-bezier(0, 0, 0.3642, 1),
+              border-color 0.4s;
+}
+
+/* Mobile: always show dark glass header */
+@media (max-width: 1200px) {
+  .mil-frame .mil-frame-top {
+    background: rgba(0, 0, 0, 0.92) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    height: 90px;
+    padding: 0 30px;
+  }
+  .mil-frame .mil-frame-top .mil-logo {
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+  .mil-frame .mil-frame-top .mil-menu-btn span,
+  .mil-frame .mil-frame-top .mil-menu-btn span:before,
+  .mil-frame .mil-frame-top .mil-menu-btn span:after {
+    background: rgba(255, 255, 255, 0.9) !important;
+  }
+}
+
+/* Desktop active nav link */
+.mil-desktop-nav ul li.mil-active a {
+  color: var(--accent) !important;
+  position: relative;
+}
+.mil-desktop-nav ul li.mil-active a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+
+/* Full-screen menu active link */
+.mil-main-menu ul li.mil-active > a {
+  color: var(--accent) !important;
+}
+
+/* Menu frame top (clone inside overlay) */
+.mil-menu-frame-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 50px 60px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+@media (max-width: 1200px) {
+  .mil-menu-frame-top {
+    height: 90px;
+    padding: 0 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* =============================================
+   ANIMATED 3D SHAPES (mil-scale / mil-animation)
+   Replicates the original GSAP parallax shapes
+============================================= */
+.mil-animation.mil-scale {
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(174, 140, 111, 0.35) 0%,
+    rgba(174, 140, 111, 0.08) 50%,
+    transparent 70%
+  );
+  animation: milShapeFloat 8s ease-in-out infinite;
+  filter: blur(1px);
+}
+.mil-animation.mil-position-1 { width: 500px; height: 500px; animation-delay: 0s;   }
+.mil-animation.mil-position-2 { width: 350px; height: 350px; animation-delay: -3s;  }
+.mil-animation.mil-position-3 { width: 200px; height: 200px; animation-delay: -5s;  }
+.mil-animation.mil-position-4 { width: 400px; height: 400px; animation-delay: -2s;  }
+
+/* Dark variant used on portfolio slider section */
+.mil-animation.mil-dark {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.2) 0%,
+    transparent 70%
+  );
+}
+
+@keyframes milShapeFloat {
+  0%   { transform: translate(0px,  0px)  scale(1);    }
+  33%  { transform: translate(15px, -20px) scale(1.05); }
+  66%  { transform: translate(-10px, 12px) scale(0.97); }
+  100% { transform: translate(0px,  0px)  scale(1);    }
+}
+
+@media (max-width: 1400px) {
+  .mil-animation.mil-position-2,
+  .mil-animation.mil-position-3 { display: none; }
+}
+
+/* =============================================
+   PRELOADER — two-phase reveal
+============================================= */
+.mil-preloader {
+  position: fixed;
+  z-index: 99999;
+  top: 0; left: 0;
+  width: 100%; height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mil-preloader-animation {
+  position: relative;
+  width: 100%; height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mil-pos-abs {
+  position: absolute;
+  width: 100%; height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mil-animation-1 { flex-direction: row; gap: 16px; }
+@media (max-width: 768px) {
+  .mil-animation-1 { flex-direction: column; gap: 8px; }
+}
+.mil-animation-2 { flex-direction: column; }
+
+/* =============================================
+   FOOTER SOCIAL ICONS RESPONSIVE
+============================================= */
+@media (max-width: 576px) {
+  .mil-footer-grid { grid-template-columns: 1fr; }
+}

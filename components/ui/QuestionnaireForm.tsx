@@ -23,7 +23,12 @@ export default function QuestionnaireForm() {
 
   const handleSubmit = async (e:React.FormEvent) => {
     e.preventDefault(); setSending(true)
-    await new Promise(r=>setTimeout(r,1400))
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: form.name, email: form.email, subject: 'Project Questionnaire', message: JSON.stringify(form, null, 2) }),
+    })
+    if (!res.ok) throw new Error('Failed to send')
     setSending(false); setSubmit(true)
   }
 
@@ -131,9 +136,6 @@ export default function QuestionnaireForm() {
       </div>
       <p className="mil-up" style={{fontSize:12,color:'rgba(0,0,0,0.35)',marginTop:20,textAlign:'right'}}>Step {step} of {TOTAL}</p>
 
-      <style jsx global>{`
-        @media (max-width:576px) { .mil-sel-grid { grid-template-columns:repeat(2,1fr)!important; } .mil-checkbox-grid { grid-template-columns:repeat(2,1fr)!important; } }
-      `}</style>
     </form>
   )
 }

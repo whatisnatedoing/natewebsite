@@ -87,11 +87,6 @@ export default function BlogClientPage({ posts }:{ posts:Post[] }) {
         </div>
       )}
 
-      <style jsx global>{`
-        @media (max-width:992px) { .mil-blog-grid { grid-template-columns:repeat(2,1fr)!important; } }
-        @media (max-width:576px) { .mil-blog-grid,.mil-featured { grid-template-columns:1fr!important; } }
-        .mil-blog-card:hover img { transform:scale(1.04); }
-      `}</style>
     </>
   )
 }

@@ -3,12 +3,22 @@ import { useState } from 'react'
 import Lightbox from 'yet-another-react-lightbox'
 import 'yet-another-react-lightbox/styles.css'
 
-type GImg = { _key:string; asset?:any; src?:string; layout?:string; alt?:string }
+type GImg = {
+  _key:string
+  asset?:any
+  src?:string
+  resolvedSrc?:string
+  layout?:string
+  alt?:string
+}
 
-export default function ProjectGallery({ gallery, getImageSrc }: { gallery:GImg[]; getImageSrc:(img:any,fb?:string)=>string }) {
+export default function ProjectGallery({ gallery }: { gallery:GImg[] }) {
   const [open, setOpen] = useState(false)
   const [index, setIndex] = useState(0)
-  const slides = gallery.map(img => ({ src: getImageSrc(img, img.src) }))
+  const slides = gallery
+  .map(img => ({
+    src: img.resolvedSrc || img.src || '/img/works/placeholder.jpg'
+  }))
   const openAt = (i:number) => { setIndex(i); setOpen(true) }
 
   return (
@@ -17,7 +27,7 @@ export default function ProjectGallery({ gallery, getImageSrc }: { gallery:GImg[
       {gallery[0] && (
         <div className="mil-up mil-mb-30">
           <div className="mil-image-frame mil-horizontal" onClick={()=>openAt(0)} style={{cursor:'zoom-in'}}>
-            <img src={getImageSrc(gallery[0],gallery[0].src)} alt={gallery[0].alt||''} loading="lazy" />
+            <img src={(gallery[0],gallery[0].src)} alt={gallery[0].alt||''} loading="lazy" />
             <div className="mil-zoom-btn"><i className="fas fa-expand" style={{fontSize:13,color:'rgba(0,0,0,0.7)'}}></i></div>
           </div>
         </div>
@@ -29,7 +39,7 @@ export default function ProjectGallery({ gallery, getImageSrc }: { gallery:GImg[
           {[gallery[1],gallery[2]].map((img,i) => img && (
             <div key={img._key} className="col-lg-6 mil-up">
               <div className="mil-image-frame mil-square" onClick={()=>openAt(i+1)} style={{cursor:'zoom-in'}}>
-                <img src={getImageSrc(img,img.src)} alt={img.alt||''} loading="lazy" />
+                <img src={img.resolvedSrc || img.src} alt={img.alt||''} loading="lazy" />
                 <div className="mil-zoom-btn"><i className="fas fa-expand" style={{fontSize:13,color:'rgba(0,0,0,0.7)'}}></i></div>
               </div>
             </div>
@@ -41,7 +51,7 @@ export default function ProjectGallery({ gallery, getImageSrc }: { gallery:GImg[
       {gallery[3] && (
         <div className="mil-up mil-mb-30">
           <div className="mil-image-frame mil-horizontal" onClick={()=>openAt(3)} style={{cursor:'zoom-in'}}>
-            <img src={getImageSrc(gallery[3],gallery[3].src)} alt={gallery[3].alt||''} loading="lazy" />
+            <img src={(gallery[3],gallery[3].src)} alt={gallery[3].alt||''} loading="lazy" />
             <div className="mil-zoom-btn"><i className="fas fa-expand" style={{fontSize:13,color:'rgba(0,0,0,0.7)'}}></i></div>
           </div>
         </div>
@@ -53,7 +63,7 @@ export default function ProjectGallery({ gallery, getImageSrc }: { gallery:GImg[
           {[gallery[4],gallery[5]].map((img,i) => img && (
             <div key={img._key} className="col-lg-6 mil-up">
               <div className="mil-image-frame mil-vertical" onClick={()=>openAt(i+4)} style={{cursor:'zoom-in'}}>
-                <img src={getImageSrc(img,img.src)} alt={img.alt||''} loading="lazy" />
+                <img src={img.resolvedSrc || img.src} alt={img.alt||''} loading="lazy" />
                 <div className="mil-zoom-btn"><i className="fas fa-expand" style={{fontSize:13,color:'rgba(0,0,0,0.7)'}}></i></div>
               </div>
             </div>
@@ -66,7 +76,7 @@ export default function ProjectGallery({ gallery, getImageSrc }: { gallery:GImg[
         <div className="mil-up" style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:30,marginTop:30}}>
           {gallery.slice(6).map((img,i) => (
             <div key={img._key} className="mil-image-frame mil-square" onClick={()=>openAt(i+6)} style={{cursor:'zoom-in'}}>
-              <img src={getImageSrc(img,img.src)} alt={img.alt||''} loading="lazy" />
+              <img src={img.resolvedSrc || img.src} alt={img.alt||''} loading="lazy" />
               <div className="mil-zoom-btn"><i className="fas fa-expand" style={{fontSize:13,color:'rgba(0,0,0,0.7)'}}></i></div>
             </div>
           ))}

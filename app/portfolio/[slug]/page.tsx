@@ -24,6 +24,11 @@ export default async function ProjectPage({ params }:{ params:{slug:string} }) {
   if (!project) notFound()
   const cover=getImg(project.coverImage,project.cover)
 
+  const galleryWithSrc = project.gallery?.map((img:any) => ({
+    ...img,
+    resolvedSrc: getImg(img, img.src),
+  })) || []
+
   return (
     <>
       <ScrollReveal />
@@ -74,7 +79,7 @@ export default async function ProjectPage({ params }:{ params:{slug:string} }) {
       </section>
 
       {project.gallery?.length>0&&(
-        <section className="mil-p-0-120"><div className="container"><ProjectGallery gallery={project.gallery} getImageSrc={getImg} /></div></section>
+        <section className="mil-p-0-120"><div className="container"><ProjectGallery gallery={galleryWithSrc} /></div></section>
       )}
 
       <section className="mil-dark-bg mil-p-120-120">
